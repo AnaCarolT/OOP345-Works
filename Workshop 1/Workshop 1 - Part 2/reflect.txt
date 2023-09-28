@@ -1,0 +1,31 @@
+/*///////////////////////////////////////////////////////////////////////////
+Full name: Ana Carolline Campos Tirolli
+Student ID#:122476229
+Email: acampos-tirolli@myseneca.ca
+Date: 2023-09-17
+
+///////////////////////////////////////////////////////////////////////////*/
+
+Topics:
+
+1. Internal linkage is the variables or functions that are limited by a scope(translation unit) meaning it can't be used by other sourve files since they are limited to these specifications.
+Example in my code:
+static int counter = 1; //It is being used by only one function and not interfering in the counter in the other funtions.
+
+External linkage: It is not limited by any scope(translation unit) and can be used by any source file.
+Example in my code:
+	//Global variables
+	//Floating-point numbers in double precision
+	extern double g_taxrate;
+	extern double g_discount;
+
+2. Static keeps their value every time a function is called which is very useful when you still need the value to be used in a future function call of the same function.
+example in my code: 
+static int counter = 1; //I was used to keep counting the number of rides which made coding simpler
+
+3. I changed m_rideDescription to a dynamic character array so it would accept the c-style null-terminated strings of any length, this way I could allocate and deallocate memory for any size I needed, so I could avoid memory leaks.
+example in my code:
+char* m_rideDescription = nullptr; //changed it a dynamic array so I can easily manage the memory as I need.
+
+Overall experience:
+It’s my first time working with a compiled code that receive arguments in C++ usually I’ve only done that in Linux so It was not so difficult to get used to set it up to make it work accordingly to what I needed it. The most difficulty I had was because I’m more used to very specific instructions so when the workshop gave me the liberty to figure out most of the work that should be done for the code like adding the c-style null-terminated string in Part 2 which made me wonder a lot because I was not sure if I could use string types or If I could change the code done in Part 1 entirely, which made me lose a lot of time by just wondering what could be a better outcome. Overall, I lost some time setting up the global variables because I’m not used to it, but now I know they need to be initialized even though the value has been given to them in another file. New errors were introduced so I was learning how to handle them properly, like “link” issues. The calculations weren’t so hard but since I can’t ask how they were supposed to be working I had to figure out by myself like there was not a hint or anything that could give an idea of how it should work besides the output so I made it based on the output. There was also the new compile commands which was quite easy to manage and now I need to get used to the way that valgrind state issues because sometimes I’m not sure what they mean. All the topics brought can be fixed by more practice and get a better knowledge on how the procedures should be done in a standard instead of thinking in too many possibilities. I could see clearly everything that was taught in classes from week 1 and week 2 so I’m glad I could just review and have a better idea of what I should do.
