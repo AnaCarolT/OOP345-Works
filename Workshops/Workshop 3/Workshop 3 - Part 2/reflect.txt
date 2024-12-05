@@ -1,0 +1,50 @@
+/*///////////////////////////////////////////////////////////////////////////
+Full name: Ana Carolline Campos Tirolli
+Student ID#:122476229
+Email: acampos-tirolli@myseneca.ca
+Date: 2023-10-01
+
+I have done all the coding by myself and only copied the code that my
+professor provided to complete my workshops and assignments.
+
+///////////////////////////////////////////////////////////////////////////*/
+
+1.	When we define a class object outside of the class definition, It provides us less redundant memory allocation, getting space in the memory for one by one of the instances of the class, making sure the use of the memory is more efficient and it’s even better when the intention is to share that object’s data.
+an example would be static members:
+// object of type T to store smallest item.
+	static T m_smallestItem;
+	//m_largestItem: An object of Type T to store largest item.
+	static T m_largestItem;
+2.	This is a way to customize using specific definition, in this workshop we used Book and 10 as a definition so once met those conditions, we could change how the data was going to be handled, like we set print based on book and the capacity.
+
+Example:
+//specialization for T = Book and C = 10
+	template<>
+	void Collection<Book, 10>::print(std::ostream& os) const {
+	unsigned i;
+	os << "| ---------------------------------------------------------------------------|\n";
+	for (i = 0; i < size(); ++i)
+	{
+		os << "| ";
+		os << m_items[i] << " |" << "\n";
+	}
+	os << "| ---------------------------------------------------------------------------|\n";
+	}
+
+3.	 It was not that relevant in this workshop imo but it was very useful to initialize m_smallest and m_largest, making sure they don’t have an inconsistent behaviour and printing according to the capacity;
+Example:
+
+template <typename T, unsigned C>
+	T Collection<T, C>::m_smallestItem{9999};
+	//largest need to be initiated at -9999
+	template <typename T, unsigned C>
+	T Collection<T, C>::m_largestItem {-9999};
+
+4.	Most templates need to be initialized and defined in their header file, you can put some class members in a cpp file but mostly templates should stay in the header file for better compile to avoid problems with the types.
+
+5.	I added the same members as the book class because so we could get access to the data in book without having the risk of affecting that data, also printing, comparison and so on.
+
+6.	In reflection, explain why these functions cannot be querries, even though they do not change value.
+
+To avoid issues while comparing data because read only methods can affect when you need to cast data in certain occasions.
+7.	Operator [] is a mutator so it more practical if we not have it as a querry, Operator []  turned into a querry would make the insertion of objects complicated although it doesn’t alter the value itself.

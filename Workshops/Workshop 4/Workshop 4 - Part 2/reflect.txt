@@ -1,0 +1,28 @@
+/*///////////////////////////////////////////////////////////////////////////
+Full name: Ana Caroline Campos Tirolli
+Student ID#:122476229
+Email: acampos-tirolli@myseneca.ca
+Date: 2023-10-10
+
+///////////////////////////////////////////////////////////////////////////*/
+
+1. Composition and aggregation are different types of relationship, they have different levels of ownership and responsibility.
+Like in Composition it has completely ownership of the objects it contains and they are controlled how long they should last/be used by the container. An example would be CheeseParty that that have an array of const Cheese*, it’s possible for it to manage the cheeses inside the array and when CheeseParty ceases to exist, it takes the array of cheeses(delete) with it.
+Now in aggregation the container may have references or pointers to the objects but it does not have complete control towards those objects.
+An example would be CheeseShop, it has an array of Cheese* but it is not responsible for how long this object will last for. When CheeseShop is destroyed, it will not delete the objects but it may give the responsibility of deleting cheese to others that may be using cheese.
+
+2. In composition, it’s necessary to do a deep copy or the move the owned objects. Like mentioned before CheeseParty has complete ownership and use deep copying and moving of const Cheese* pointers and it may destroy it as well.
+In aggregation, it means it holds references and pointers which also means that they move or copy these pointers without deep copying or moving owned objects. CheeseShop is in an aggregation relationship with const Cheese**.
+3. In the CheeseParty addCheese that adds and creates const Cheese* and it has complete ownership of whatever is added in that function in relation to the objects and it turns them responsible for extinguish the too.
+In the CheeseShop addCheese it merely holds pointers which may be accessed by other entities, it doesn’t create any objects like CheeseParty.
+
+4. to create a removeCheese that has an agreggation relationship, it would be necessary for us to do like this:
+CheeseShop::removeCheese(const Cheese& remove){
+//We would and array(temporary) to store the remaining cheese pointers
+//get a counter to discover the new number
+//always remember to clean the cheese pointers if necessary and the objects shouldn’t be deleted
+//after acquiring the necessary information, update the member variables without the cheese that was chosen to be deleted.
+}
+
+
+I've been sick this past week so since most things are quite similar, I kept failing into getting the right base since they have slightly variations but it's important to add and delete them properly to avoid memory leak, I keep redoing over and over again until finally the messages of memory leak ceased. Another issue that was also getting in my way was the formating a string using the string library, took me forever to get used to it, I kept or leaving too much empty spaces or eating a letter by accident but after a lot of trial and error, I managed to finally get a result.
